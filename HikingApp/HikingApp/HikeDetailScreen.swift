@@ -1,12 +1,11 @@
 //
 //  HikeDetailScreen.swift
-//  HelloSwiftUI
+//  HikingApp
 //
 //  Created by AppleD0g on 3/9/25.
 //
 
 import SwiftUI
-
 struct HikeDetailScreen: View {
     let hike: Hike
     

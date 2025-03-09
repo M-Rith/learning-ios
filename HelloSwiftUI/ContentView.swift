@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var count: Int = 0
+    
+    @State private var isOn: Bool = false
+    
     var body: some View {
         VStack(spacing: 10) {
             Image("costa-rica").resizable().aspectRatio(contentMode: .fit).clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/))
@@ -25,6 +30,18 @@ struct ContentView: View {
             } placeholder: {
                 ProgressView()
             }
+            
+            Text("\(count)").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+            Button("Increament") {
+                count+=1
+            }
+            VStack{
+                Toggle(isOn: $isOn, label: {
+                    Text(isOn ? "ON" : "OFF")
+                }).fixedSize()
+            }.frame(maxWidth: .infinity, maxHeight: .infinity).background(isOn ? .blue : .black)
+            
+        
             
         }.foregroundColor(.yellow).padding([.top, .bottom], 25)
         
