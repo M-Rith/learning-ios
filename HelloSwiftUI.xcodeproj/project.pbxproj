@@ -13,6 +13,7 @@
 		CE6A8C9C2D7B5A4100CEF743 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A8C9B2D7B5A4100CEF743 /* ContentView.swift */; };
 		CE6A8C9E2D7B5A4300CEF743 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8C9D2D7B5A4300CEF743 /* Assets.xcassets */; };
 		CE6A8CA12D7B5A4300CEF743 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8CA02D7B5A4300CEF743 /* Preview Assets.xcassets */; };
+		CEF94D252D7DE49E00EFDE12 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF94D242D7DE49E00EFDE12 /* Binding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CE6A8C9D2D7B5A4300CEF743 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6A8CA02D7B5A4300CEF743 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE6A8CA22D7B5A4300CEF743 /* HelloSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HelloSwiftUI.entitlements; sourceTree = "<group>"; };
+		CEF94D242D7DE49E00EFDE12 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				CE6A8C992D7B5A4000CEF743 /* HelloSwiftUIApp.swift */,
 				CE6A8C9B2D7B5A4100CEF743 /* ContentView.swift */,
 				CE20B91F2D7D745F0070046B /* ListViewState.swift */,
+				CEF94D242D7DE49E00EFDE12 /* Binding.swift */,
 				CE20B9142D7D51390070046B /* tam.png */,
 				CE6A8C9D2D7B5A4300CEF743 /* Assets.xcassets */,
 				CE6A8CA22D7B5A4300CEF743 /* HelloSwiftUI.entitlements */,
@@ -149,6 +152,7 @@
 				CE6A8C9C2D7B5A4100CEF743 /* ContentView.swift in Sources */,
 				CE20B9202D7D745F0070046B /* ListViewState.swift in Sources */,
 				CE6A8C9A2D7B5A4000CEF743 /* HelloSwiftUIApp.swift in Sources */,
+				CEF94D252D7DE49E00EFDE12 /* Binding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
