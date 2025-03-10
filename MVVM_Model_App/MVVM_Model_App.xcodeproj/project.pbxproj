@@ -11,6 +11,9 @@
 		CE7A84612D7F4A85006CE9CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A84602D7F4A85006CE9CC /* ContentView.swift */; };
 		CE7A84632D7F4A87006CE9CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7A84622D7F4A87006CE9CC /* Assets.xcassets */; };
 		CE7A84662D7F4A87006CE9CC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7A84652D7F4A87006CE9CC /* Preview Assets.xcassets */; };
+		CE7A84702D7F4BF9006CE9CC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A846F2D7F4BF9006CE9CC /* WebService.swift */; };
+		CE7A84722D7F4C20006CE9CC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A84712D7F4C20006CE9CC /* Product.swift */; };
+		CE7A84762D7F4DFF006CE9CC /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A84752D7F4DFF006CE9CC /* ProductListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		CE7A84622D7F4A87006CE9CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE7A84652D7F4A87006CE9CC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE7A84672D7F4A87006CE9CC /* MVVM_Model_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MVVM_Model_App.entitlements; sourceTree = "<group>"; };
+		CE7A846F2D7F4BF9006CE9CC /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		CE7A84712D7F4C20006CE9CC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CE7A84752D7F4DFF006CE9CC /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				CE7A845E2D7F4A85006CE9CC /* MVVM_Model_AppApp.swift */,
+				CE7A846E2D7F4BE5006CE9CC /* Models */,
 				CE7A84602D7F4A85006CE9CC /* ContentView.swift */,
+				CE7A84732D7F4DDA006CE9CC /* ViewModel */,
+				CE7A846D2D7F4BD8006CE9CC /* Services */,
 				CE7A84622D7F4A87006CE9CC /* Assets.xcassets */,
 				CE7A84672D7F4A87006CE9CC /* MVVM_Model_App.entitlements */,
 				CE7A84642D7F4A87006CE9CC /* Preview Content */,
@@ -67,6 +76,30 @@
 				CE7A84652D7F4A87006CE9CC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CE7A846D2D7F4BD8006CE9CC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A846F2D7F4BF9006CE9CC /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE7A846E2D7F4BE5006CE9CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A84712D7F4C20006CE9CC /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE7A84732D7F4DDA006CE9CC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE7A84752D7F4DFF006CE9CC /* ProductListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +172,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7A84702D7F4BF9006CE9CC /* WebService.swift in Sources */,
+				CE7A84762D7F4DFF006CE9CC /* ProductListViewModel.swift in Sources */,
+				CE7A84722D7F4C20006CE9CC /* Product.swift in Sources */,
 				CE7A84612D7F4A85006CE9CC /* ContentView.swift in Sources */,
 				CE7A845F2D7F4A85006CE9CC /* MVVM_Model_AppApp.swift in Sources */,
 			);
@@ -285,8 +321,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "personal.MVVM-Model-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,8 +349,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "personal.MVVM-Model-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
