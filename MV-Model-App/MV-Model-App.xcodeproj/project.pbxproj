@@ -13,6 +13,7 @@
 		CEE566AC2D809142005DBE28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE566AB2D809142005DBE28 /* Preview Assets.xcassets */; };
 		CEE566B52D8092B4005DBE28 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE566B42D8092B4005DBE28 /* StoreModel.swift */; };
 		CEE566B72D80939D005DBE28 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE566B62D80939D005DBE28 /* Product.swift */; };
+		CEE566BA2D809BD0005DBE28 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE566B92D809BD0005DBE28 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CEE566AD2D809142005DBE28 /* MV_Model_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MV_Model_App.entitlements; sourceTree = "<group>"; };
 		CEE566B42D8092B4005DBE28 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		CEE566B62D80939D005DBE28 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CEE566B92D809BD0005DBE28 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		CEE566A32D80913F005DBE28 /* MV-Model-App */ = {
 			isa = PBXGroup;
 			children = (
+				CEE566B82D8098F3005DBE28 /* Services */,
 				CEE566B32D809275005DBE28 /* Models */,
 				CEE566A42D80913F005DBE28 /* MV_Model_AppApp.swift */,
 				CEE566A62D80913F005DBE28 /* ContentView.swift */,
@@ -81,6 +84,14 @@
 				CEE566B62D80939D005DBE28 /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CEE566B82D8098F3005DBE28 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEE566B92D809BD0005DBE28 /* WebService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 				CEE566A72D80913F005DBE28 /* ContentView.swift in Sources */,
 				CEE566B72D80939D005DBE28 /* Product.swift in Sources */,
 				CEE566A52D80913F005DBE28 /* MV_Model_AppApp.swift in Sources */,
+				CEE566BA2D809BD0005DBE28 /* WebService.swift in Sources */,
 				CEE566B52D8092B4005DBE28 /* StoreModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

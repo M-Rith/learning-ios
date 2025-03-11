@@ -11,8 +11,16 @@ class StoreModel : ObservableObject {
     
     @Published var products : [Product] = []
     
+    let webService : Webservice
     
-    func populateProduct() async {
+    
+    init(webService: Webservice) {
+        self.webService = webService
+    }
+    
+    func populateProduct() async throws {
+        products = try await webService.getProducts()
+        
         
     }
 }
