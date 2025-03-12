@@ -19,6 +19,7 @@ struct ContentView: View {
             print("Error")
         }
     }
+    
     var body: some View {
         VStack {
             List(storeModel.products) { product in
