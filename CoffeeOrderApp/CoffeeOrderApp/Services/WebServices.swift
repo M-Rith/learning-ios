@@ -14,9 +14,44 @@ enum NetworkError: Error {
     case badUrl
 }
 
+private func createPostRequest<T: Encodable>(url: URL, body: T) throws -> URLRequest {
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpBody = try JSONEncoder().encode(body)
+    return request
+}
+
+
 class WebService {
+    private let environmentManager: AppEnvironmentManager
+    
+    init(environmentManager: AppEnvironmentManager) {
+        self.environmentManager = environmentManager
+    }
+    
+    func placeOrder(order: Order) async throws -> Order {
+        guard let url = URL(string: Endpoints.allOrder.path, relativeTo: environmentManager.baseURL) else {
+            throw NetworkError.badUrl
+        }
+
+        let request = try createPostRequest(url: url, body: order)
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw NetworkError.badRequest
+            }
+            
+            return try JSONDecoder().decode(Order.self, from: data)
+        } catch {
+            throw NetworkError.decodingError
+        }
+    }
+    
     func getOrders() async throws -> [Order] {
-        guard let url = URL(string: "https://island-bramble.glitch.me/orders") else {
+        guard let url = URL(string: Endpoints.allOrder.path, relativeTo: environmentManager.baseURL) else {
             throw NetworkError.badUrl
         }
         
@@ -27,8 +62,7 @@ class WebService {
         }
         
         do {
-            let orders = try JSONDecoder().decode([Order].self, from: data)
-            return orders
+            return try JSONDecoder().decode([Order].self, from: data)
         } catch {
             throw NetworkError.decodingError
         }

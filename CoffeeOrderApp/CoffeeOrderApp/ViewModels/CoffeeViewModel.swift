@@ -10,9 +10,13 @@ import Observation
 
 
 @Observable class CoffeeViewModel {
-    private let webService = WebService()
+    private let webService: WebService
     
     var orders: [Order] = []
+    
+    init(webService: WebService = WebService(environmentManager: AppEnvironmentManager.shared)) {
+        self.webService = webService
+    }
     
     func getOrders() async {
         self.orders = (try? await webService.getOrders()) ?? []
