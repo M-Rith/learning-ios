@@ -15,7 +15,7 @@ struct OrderCellView: View {
             VStack(alignment: .leading) {
                 Text(order.name).accessibilityIdentifier("OrderNameText").bold()
                 
-                Text("\(order.coffeeName) (\(order.size))").accessibilityIdentifier("CoffeeNameAndSizeText").opacity(0.5)
+                Text("\(order.coffeeName) (\(order.size.rawValue))").accessibilityIdentifier("CoffeeNameAndSizeText").opacity(0.5)
             }
             Spacer()
             Text(order.total, format: .currency(code: "USD")) // ✅ SwiftUI

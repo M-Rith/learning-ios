@@ -16,7 +16,5 @@ import Observation
     
     func getOrders() async {
         self.orders = (try? await webService.getOrders()) ?? []
-        
-        print(self.orders)
     }
 }
