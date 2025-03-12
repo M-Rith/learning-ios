@@ -13,8 +13,6 @@ struct ContentView: View {
         
     private func getCoffeeList() async {
         await coffeeViewModel.getOrders()
-        print("📢 Orders: \(coffeeViewModel.orders)")
-        
     }
     
     var body: some View {
@@ -25,7 +23,6 @@ struct ContentView: View {
                 await getCoffeeList()
             }
         }
-        .padding()
     }
 }
 
