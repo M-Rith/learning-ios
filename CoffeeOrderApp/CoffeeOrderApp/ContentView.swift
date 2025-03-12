@@ -7,17 +7,27 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    private var coffeeViewModel = CoffeeViewModel()
+        
+    private func getCoffeeList() async {
+        await coffeeViewModel.getOrders()
+    }
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(coffeeViewModel.orders) {order in
+                OrderCellView(order: order)
+            }.task {
+                await getCoffeeList()
+            }
         }
-        .padding()
     }
 }
+
+
+
 
 #Preview {
     ContentView()
