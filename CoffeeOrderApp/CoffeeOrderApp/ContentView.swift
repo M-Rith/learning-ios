@@ -17,6 +17,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            if coffeeViewModel.orders.isEmpty {
+                Text("No orders avaliable").accessibilityIdentifier("noOrderText")
+            }
+          
             List(coffeeViewModel.orders) {order in
                 OrderCellView(order: order)
             }.task {
