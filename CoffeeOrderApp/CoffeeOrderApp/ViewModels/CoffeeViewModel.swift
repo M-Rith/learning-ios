@@ -10,15 +10,18 @@ import Observation
 
 
 @Observable class CoffeeViewModel {
-    private let webService: WebService
-    
-    var orders: [Order] = []
-    
-    init(webService: WebService = WebService(environmentManager: AppEnvironmentManager.shared)) {
-        self.webService = webService
-    }
+    static let shared = CoffeeViewModel()
+    var orders: [Order] = [] 
+    var isLoading: Bool = false
     
     func getOrders() async {
-        self.orders = (try? await webService.getOrders()) ?? []
-    }
+            isLoading = true
+            defer { isLoading = false }
+            
+            do {
+                orders = try await WebService().fetch(endpoint: "orders")
+            } catch {
+                print("Failed to load users: \(error.localizedDescription)")
+            }
+        }
 }
