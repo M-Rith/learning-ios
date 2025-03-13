@@ -40,6 +40,23 @@ struct WebService {
         let (data, _) = try await URLSession.shared.data(for: request)
         return try JSONDecoder().decode(U.self, from: data)
     }
+    
+    func delete(endpoint: String) async throws {
+        let urlString = "\(AppEnvironment.shared.baseURL)/\(endpoint)"
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+
+        let (_, response) = try await URLSession.shared.data(for: request)
+
+        // Ensure the response status is 200-299 (successful deletion)
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+    }
 }
 
 //class WebService {
