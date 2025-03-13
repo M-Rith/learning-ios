@@ -21,6 +21,8 @@
 		CE9E6E742D81E121009C1A36 /* CoffeeOrderAppE2EUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E6E732D81E121009C1A36 /* CoffeeOrderAppE2EUITestsLaunchTests.swift */; };
 		CE9E6E7B2D81E65B009C1A36 /* AddCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E6E7A2D81E65B009C1A36 /* AddCoffeeView.swift */; };
 		CE9E6E7D2D81E88C009C1A36 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E6E7C2D81E88C009C1A36 /* ViewExtension.swift */; };
+		CE9E6E7F2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E6E7E2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift */; };
+		CE9E6E812D81EEED009C1A36 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E6E802D81EEED009C1A36 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		CE9E6E732D81E121009C1A36 /* CoffeeOrderAppE2EUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrderAppE2EUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE9E6E7A2D81E65B009C1A36 /* AddCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoffeeView.swift; sourceTree = "<group>"; };
 		CE9E6E7C2D81E88C009C1A36 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		CE9E6E7E2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCoffeeViewModel.swift; sourceTree = "<group>"; };
+		CE9E6E802D81EEED009C1A36 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CE4BAECB2D816752001B52D6 /* CoffeeViewModel.swift */,
+				CE9E6E7E2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				CE4BAED02D818232001B52D6 /* NumberFormatter.swift */,
 				CE9E6E7C2D81E88C009C1A36 /* ViewExtension.swift */,
+				CE9E6E802D81EEED009C1A36 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,8 +285,10 @@
 				CE4BAED12D818232001B52D6 /* NumberFormatter.swift in Sources */,
 				CE4BAECE2D81718B001B52D6 /* WebServices.swift in Sources */,
 				CE9E6E7D2D81E88C009C1A36 /* ViewExtension.swift in Sources */,
+				CE9E6E7F2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift in Sources */,
 				CE9E6E7B2D81E65B009C1A36 /* AddCoffeeView.swift in Sources */,
 				CE4BAECC2D816752001B52D6 /* CoffeeViewModel.swift in Sources */,
+				CE9E6E812D81EEED009C1A36 /* StringExtension.swift in Sources */,
 				CE4BAEC82D815B85001B52D6 /* Order.swift in Sources */,
 				CE9E6E6A2D81D79C009C1A36 /* AppEnviroment.swift in Sources */,
 				CE4BAEB42D8158A1001B52D6 /* CoffeeOrderAppApp.swift in Sources */,

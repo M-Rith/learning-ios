@@ -7,28 +7,45 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
-    private var coffeeViewModel = CoffeeViewModel()
-        
-    private func getCoffeeList() async {
-        await coffeeViewModel.getOrders()
-    }
+    @State private var coffeeViewModel = CoffeeViewModel.shared
+    
+    @State private var isBottomSheetOpen = false
     
     var body: some View {
-        VStack {
-            if coffeeViewModel.orders.isEmpty {
-                Text("No orders avaliable").accessibilityIdentifier("noOrderText")
+        
+        NavigationStack {
+            VStack {
+                if coffeeViewModel.orders.isEmpty {
+                    Text("No orders available")
+                        .accessibilityIdentifier("noOrderText")
+                } else {
+                    List(coffeeViewModel.orders) { order in
+                        OrderCellView(order: order)
+                    }
+                }
             }
-          
-            List(coffeeViewModel.orders) {order in
-                OrderCellView(order: order)
-            }.task {
-                await getCoffeeList()
+            .task {
+                await coffeeViewModel.getOrders()
+                print("📌 Orders: \(coffeeViewModel.orders)")
+            }
+            .sheet(isPresented: $isBottomSheetOpen, content: {
+                NavigationStack {
+                    AddCoffeeView()
+                }
+            
+            })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add New Order") {
+                        isBottomSheetOpen = true
+                    }.accessibilityIdentifier("addNewOrderButton")
+                }
             }
         }
     }
 }
+
 
 
 

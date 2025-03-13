@@ -8,31 +8,56 @@
 import SwiftUI
 
 struct AddCoffeeView: View {
-    
-    @State private var name : String = ""
-    @State private var coffeeName : String = ""
-    @State private var price : String = ""
-    @State private var coffeeSize : CoffeeSize = .medium
+    @State private var viewModel = AddNewCoffeeViewModel()
+    @Environment(\.dismiss) private var dismiss 
     var body: some View {
         Form {
-            TextField("Name", text: $name).accessibilityIdentifier("name")
-            TextField("Coffee Name", text: $coffeeName).accessibilityIdentifier("coffeeName")
-            TextField("Price", text: $price).accessibilityIdentifier("price")
-            
-            Picker("Select size", selection: $coffeeSize) {
+            TextField("Name", text: $viewModel.name)
+                .accessibilityIdentifier("name")
+            Text(viewModel.errors.name)
+                .foregroundColor(.red)
+                .font(.caption)
+                .visible(!viewModel.errors.name.isEmpty)
+
+            TextField("Coffee Name", text: $viewModel.coffeeName)
+                .accessibilityIdentifier("coffeeName")
+            Text(viewModel.errors.coffeeName)
+                .foregroundColor(.red)
+                .font(.caption)
+                .visible(!viewModel.errors.coffeeName.isEmpty)
+
+            TextField("Price", text: $viewModel.price)
+                .accessibilityIdentifier("price")
+            Text(viewModel.errors.price)
+                .foregroundColor(.red)
+                .font(.caption)
+                .visible(!viewModel.errors.price.isEmpty)
+
+            Picker("Select size", selection: $viewModel.coffeeSize) {
                 ForEach(CoffeeSize.allCases, id: \.rawValue) { size in
                     Text(size.rawValue).tag(size)
                 }
-            }.pickerStyle(.segmented).padding(.vertical)
-            
-            
+            }
+            .pickerStyle(.segmented)
+            .padding(.vertical)
+
             Button("Place Order") {
-                
-            }.accessibilityIdentifier("placeOrder")
+                if viewModel.validate() {
+                    Task {
+                        await viewModel.postNewOrder()
+                        dismiss()
+                      }
+                }
+            }
+            .accessibilityIdentifier("placeOrder")
+            .centerHorizontally()
         }
+        .navigationTitle("Add New Coffee")
     }
 }
 
 #Preview {
-    AddCoffeeView()
+    NavigationStack { 
+        AddCoffeeView()
+    }
 }
