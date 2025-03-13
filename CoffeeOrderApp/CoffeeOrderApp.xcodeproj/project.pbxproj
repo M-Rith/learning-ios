@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE36FE562D82CC3A00C33032 /* OrderViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36FE552D82CC3A00C33032 /* OrderViewDetail.swift */; };
 		CE4BAEB42D8158A1001B52D6 /* CoffeeOrderAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAEB32D8158A1001B52D6 /* CoffeeOrderAppApp.swift */; };
 		CE4BAEB62D8158A1001B52D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4BAEB52D8158A1001B52D6 /* ContentView.swift */; };
 		CE4BAEB82D8158A3001B52D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4BAEB72D8158A3001B52D6 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE36FE552D82CC3A00C33032 /* OrderViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewDetail.swift; sourceTree = "<group>"; };
 		CE4BAEB02D8158A1001B52D6 /* CoffeeOrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeOrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4BAEB32D8158A1001B52D6 /* CoffeeOrderAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrderAppApp.swift; sourceTree = "<group>"; };
 		CE4BAEB52D8158A1001B52D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				CE4BAED32D818382001B52D6 /* OrderCellView.swift */,
+				CE36FE552D82CC3A00C33032 /* OrderViewDetail.swift */,
 				CE9E6E7A2D81E65B009C1A36 /* AddCoffeeView.swift */,
 			);
 			path = Views;
@@ -286,6 +289,7 @@
 				CE4BAECE2D81718B001B52D6 /* WebServices.swift in Sources */,
 				CE9E6E7D2D81E88C009C1A36 /* ViewExtension.swift in Sources */,
 				CE9E6E7F2D81EA5A009C1A36 /* AddNewCoffeeViewModel.swift in Sources */,
+				CE36FE562D82CC3A00C33032 /* OrderViewDetail.swift in Sources */,
 				CE9E6E7B2D81E65B009C1A36 /* AddCoffeeView.swift in Sources */,
 				CE4BAECC2D816752001B52D6 /* CoffeeViewModel.swift in Sources */,
 				CE9E6E812D81EEED009C1A36 /* StringExtension.swift in Sources */,

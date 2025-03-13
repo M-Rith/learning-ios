@@ -15,8 +15,8 @@ import Observation
     var price: String = ""
 }
 
-@Observable
-class AddNewCoffeeViewModel {
+
+@Observable class AddNewCoffeeViewModel {
     
     
     var name: String = ""
@@ -27,6 +27,23 @@ class AddNewCoffeeViewModel {
     
     var isValid: Bool {
         validate()
+    }
+    
+    
+    var selectedOrder: Order = Order(id: 0, name: "", coffeeName: "", total: 0.0, size: .medium)
+    var isEditing: Bool = false
+    
+    
+    func loadOrder(_ existingOrder: Order?) {
+        if let existingOrder = existingOrder {
+            self.selectedOrder = existingOrder
+            self.isEditing = true
+            
+            self.name = existingOrder.name
+            self.coffeeName = existingOrder.coffeeName
+            self.coffeeSize = existingOrder.size
+            self.price = String(existingOrder.total)
+        }
     }
     
 
@@ -54,14 +71,37 @@ class AddNewCoffeeViewModel {
         return errors.name.isEmpty && errors.coffeeName.isEmpty && errors.price.isEmpty
     }
     
-    func postNewOrder() async {
-        let newOrder = Order(name: name, coffeeName: coffeeName, total: Double(price) ?? 0, size: coffeeSize)
+    func saveOrUpdate() async {
+        let orderItem = Order(
+            id: selectedOrder.id,
+            name: name,
+            coffeeName: coffeeName,
+            total: Double(price) ?? 0,
+            size: coffeeSize
+        )
         
-        do {
-            let createdOrder: Order = try await WebService().post(endpoint: "newOrder", body: newOrder)
-            CoffeeViewModel.shared.orders.append(createdOrder)
-        } catch {
-            print("Failed to create order: \(error.localizedDescription)")
+        if isEditing {
+            guard let orderId = selectedOrder.id else {
+                return
+            }
+
+            do {
+                let updatedOrder: Order = try await WebService().update(endpoint: "orders/\(orderId)", body: orderItem)
+
+                if let index = CoffeeViewModel.shared.orders.firstIndex(where: { $0.id == orderId }) {
+                    CoffeeViewModel.shared.orders[index] = updatedOrder
+                }
+            } catch {
+                print("❌ Failed to update order:", error.localizedDescription)
+            }
+        } else {
+            do {
+                let createdOrder: Order = try await WebService().post(endpoint: "newOrder", body: orderItem)
+                CoffeeViewModel.shared.orders.append(createdOrder)
+            } catch {
+                print("❌ Failed to create order:", error.localizedDescription)
+            }
         }
     }
+    
 }
