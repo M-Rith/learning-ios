@@ -20,9 +20,22 @@ struct ContentView: View {
                     Text("No orders available")
                         .accessibilityIdentifier("noOrderText")
                 } else {
-                    List(coffeeViewModel.orders) { order in
-                        OrderCellView(order: order)
+                    List{
+                        ForEach(coffeeViewModel.orders) {order in
+                            OrderCellView(order: order)
+                        }
+                        .onDelete { indexSet in
+                            Task {
+                                for index in indexSet {
+                                    let order = coffeeViewModel.orders[index]
+                                    await coffeeViewModel.deleteOrder(orderId: order.id ?? 0)
+                                }
+                            }
+                        }
                     }
+//                    List(coffeeViewModel.orders) { order in
+//                        OrderCellView(order: order)
+//                    }
                 }
             }
             .task {

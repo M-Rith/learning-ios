@@ -24,4 +24,13 @@ import Observation
                 print("Failed to load users: \(error.localizedDescription)")
             }
         }
+    
+    func deleteOrder(orderId: Int) async {
+        do {
+            try await WebService().delete(endpoint: "orders/\(orderId)")
+            orders.removeAll { $0.id == orderId } // Remove locally after successful deletion
+        } catch {
+            print("Failed to delete order: \(error.localizedDescription)")
+        }
+    }
 }
