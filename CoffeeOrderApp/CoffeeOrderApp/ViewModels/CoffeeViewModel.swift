@@ -14,6 +14,10 @@ import Observation
     var orders: [Order] = [] 
     var isLoading: Bool = false
     
+    func findOrderByIndex(_ id: Int) -> Order? {
+        return orders.first(where: { $0.id == id })
+    }
+    
     func getOrders() async {
             isLoading = true
             defer { isLoading = false }
@@ -28,9 +32,11 @@ import Observation
     func deleteOrder(orderId: Int) async {
         do {
             try await WebService().delete(endpoint: "orders/\(orderId)")
-            orders.removeAll { $0.id == orderId } // Remove locally after successful deletion
+            orders.removeAll { $0.id == orderId }
         } catch {
             print("Failed to delete order: \(error.localizedDescription)")
         }
     }
+    
+    
 }

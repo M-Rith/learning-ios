@@ -22,7 +22,10 @@ struct ContentView: View {
                 } else {
                     List{
                         ForEach(coffeeViewModel.orders) {order in
-                            OrderCellView(order: order)
+                            NavigationLink(value: order.id) {
+                                OrderCellView(order: order)
+                            }
+                            
                         }
                         .onDelete { indexSet in
                             Task {
@@ -33,11 +36,11 @@ struct ContentView: View {
                             }
                         }
                     }
-//                    List(coffeeViewModel.orders) { order in
-//                        OrderCellView(order: order)
-//                    }
                 }
             }
+            .navigationDestination(for: Int.self, destination: { orderId in
+                OrderViewDetail(orderId: orderId)
+            })
             .task {
                 await coffeeViewModel.getOrders()
                 print("📌 Orders: \(coffeeViewModel.orders)")
