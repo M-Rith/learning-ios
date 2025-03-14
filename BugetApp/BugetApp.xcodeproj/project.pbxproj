@@ -11,6 +11,8 @@
 		CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DABC42D833460000ED1F3 /* ContentView.swift */; };
 		CE0DABC72D833462000ED1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC62D833462000ED1F3 /* Assets.xcassets */; };
 		CE0DABCA2D833462000ED1F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */; };
+		CEEA89C02D847D5B00A13984 /* budgetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */; };
+		CEEA89C52D84830000A13984 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA89C42D84830000A13984 /* BudgetCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		CE0DABC62D833462000ED1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE0DABCB2D833462000ED1F3 /* BugetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BugetApp.entitlements; sourceTree = "<group>"; };
+		CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = budgetModel.xcdatamodel; sourceTree = "<group>"; };
+		CEEA89C42D84830000A13984 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		CE0DABC12D833460000ED1F3 /* BugetApp */ = {
 			isa = PBXGroup;
 			children = (
+				CEEA89C12D84829200A13984 /* Models */,
 				CE0DABC22D833460000ED1F3 /* BugetAppApp.swift */,
 				CE0DABC42D833460000ED1F3 /* ContentView.swift */,
 				CE0DABC62D833462000ED1F3 /* Assets.xcassets */,
 				CE0DABCB2D833462000ED1F3 /* BugetApp.entitlements */,
 				CE0DABC82D833462000ED1F3 /* Preview Content */,
+				CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */,
 			);
 			path = BugetApp;
 			sourceTree = "<group>";
@@ -67,6 +73,14 @@
 				CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CEEA89C12D84829200A13984 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEEA89C42D84830000A13984 /* BudgetCategory.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEA89C52D84830000A13984 /* BudgetCategory.swift in Sources */,
 				CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */,
+				CEEA89C02D847D5B00A13984 /* budgetModel.xcdatamodeld in Sources */,
 				CE0DABC32D833460000ED1F3 /* BugetAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +359,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */,
+			);
+			currentVersion = CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */;
+			name = budgetModel.xcdatamodeld;
+			path = /Users/user/Documents/ios_course/HelloSwiftUI/BugetApp/BugetApp/budgetModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE0DABB72D833460000ED1F3 /* Project object */;
 }
