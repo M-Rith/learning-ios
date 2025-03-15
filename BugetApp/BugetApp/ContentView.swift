@@ -8,15 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPresented: Bool = false
+
+    @EnvironmentObject var viewModel: BudgetCategoriesViewModel // No need to pass it manually
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            NavigationStack {
+                VStack {
+                    List(viewModel.budgetCategories) { category in
+                        Text(category.title ?? "Default")
+                    }
+                }
+                .sheet(isPresented: $isPresented) {
+                    AddBudgetCategory()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Add Category") {
+                            isPresented = true
+                        }
+                    }
+                }
+            }
+            .onAppear {
+                viewModel.fetchCategories()
+            }
         }
-        .padding()
-    }
 }
 
 #Preview {
