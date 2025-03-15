@@ -34,14 +34,31 @@ class CoreDataManager {
         return try? container.viewContext.fetch(request)
     }
     
-    func addBudgetCategory(title: String, total: Double) {
+//    func addBudgetCategory(title: String, total: Double) {
+//
+//        let addNewBudgetCategory = BudgetCategory(context: container.viewContext)
+//
+//        addNewBudgetCategory.title = title
+//        addNewBudgetCategory.total = total
+//        save()
+//    }
+    
+    func addBudgetCategory(title: String, total: Double) -> BudgetCategory? {
+        let newCategory = BudgetCategory(context: container.viewContext)
+        newCategory.title = title
+        newCategory.total = total
         
-        let addNewBudgetCategory = BudgetCategory(context: container.viewContext)
-        
-        addNewBudgetCategory.title = title
-        addNewBudgetCategory.total = total
-        
-        save()
-        
+        do {
+            save()
+            return newCategory
+        }
+    }
+    
+    func deleteBudgetCategory(indexSet : IndexSet) {
+        guard let index = indexSet.first else { return }
+        if let budget = fetchBudgetCategory() {
+            container.viewContext.delete(budget[index])
+            save()
+        }
     }
 }
