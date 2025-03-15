@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct BugetAppApp: App {
+    
+    @StateObject private var viewModel = BudgetCategoriesViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel) 
         }
     }
 }

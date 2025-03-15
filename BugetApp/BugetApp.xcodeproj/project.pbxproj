@@ -11,8 +11,12 @@
 		CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DABC42D833460000ED1F3 /* ContentView.swift */; };
 		CE0DABC72D833462000ED1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC62D833462000ED1F3 /* Assets.xcassets */; };
 		CE0DABCA2D833462000ED1F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */; };
-		CEEA89C02D847D5B00A13984 /* budgetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */; };
-		CEEA89C52D84830000A13984 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEA89C42D84830000A13984 /* BudgetCategory.swift */; };
+		CE499BB42D85769E00B1497E /* BudgetCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */; };
+		CE499BB72D85773B00B1497E /* AddBudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BB62D85773B00B1497E /* AddBudgetCategory.swift */; };
+		CE499BBC2D8580AB00B1497E /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */; };
+		CE499BC02D85900500B1497E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BBF2D85900500B1497E /* CoreDataManager.swift */; };
+		CE499BCC2D85962C00B1497E /* BudgetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE499BCA2D85962C00B1497E /* BudgetModel.xcdatamodeld */; };
+		CE499BCE2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BCD2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +26,12 @@
 		CE0DABC62D833462000ED1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE0DABCB2D833462000ED1F3 /* BugetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BugetApp.entitlements; sourceTree = "<group>"; };
-		CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = budgetModel.xcdatamodel; sourceTree = "<group>"; };
-		CEEA89C42D84830000A13984 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
+		CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoriesViewModel.swift; sourceTree = "<group>"; };
+		CE499BB62D85773B00B1497E /* AddBudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetCategory.swift; sourceTree = "<group>"; };
+		CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
+		CE499BBF2D85900500B1497E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CE499BCB2D85962C00B1497E /* BudgetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetModel.xcdatamodel; sourceTree = "<group>"; };
+		CE499BCD2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +64,16 @@
 		CE0DABC12D833460000ED1F3 /* BugetApp */ = {
 			isa = PBXGroup;
 			children = (
-				CEEA89C12D84829200A13984 /* Models */,
+				CE499BBE2D858FF600B1497E /* Manager */,
+				CE499BBA2D85809000B1497E /* Extenstion */,
+				CE499BB52D85772600B1497E /* View */,
+				CE499BB22D85764900B1497E /* ViewModel */,
+				CE499BAE2D85745800B1497E /* Models */,
 				CE0DABC22D833460000ED1F3 /* BugetAppApp.swift */,
 				CE0DABC42D833460000ED1F3 /* ContentView.swift */,
 				CE0DABC62D833462000ED1F3 /* Assets.xcassets */,
 				CE0DABCB2D833462000ED1F3 /* BugetApp.entitlements */,
 				CE0DABC82D833462000ED1F3 /* Preview Content */,
-				CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */,
 			);
 			path = BugetApp;
 			sourceTree = "<group>";
@@ -75,12 +86,45 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		CEEA89C12D84829200A13984 /* Models */ = {
+		CE499BAE2D85745800B1497E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CEEA89C42D84830000A13984 /* BudgetCategory.swift */,
+				CE499BCA2D85962C00B1497E /* BudgetModel.xcdatamodeld */,
+				CE499BCD2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE499BB22D85764900B1497E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE499BB52D85772600B1497E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE499BB62D85773B00B1497E /* AddBudgetCategory.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE499BBA2D85809000B1497E /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		CE499BBE2D858FF600B1497E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CE499BBF2D85900500B1497E /* CoreDataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,10 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEA89C52D84830000A13984 /* BudgetCategory.swift in Sources */,
 				CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */,
-				CEEA89C02D847D5B00A13984 /* budgetModel.xcdatamodeld in Sources */,
+				CE499BB72D85773B00B1497E /* AddBudgetCategory.swift in Sources */,
+				CE499BCE2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift in Sources */,
 				CE0DABC32D833460000ED1F3 /* BugetAppApp.swift in Sources */,
+				CE499BB42D85769E00B1497E /* BudgetCategoriesViewModel.swift in Sources */,
+				CE499BCC2D85962C00B1497E /* BudgetModel.xcdatamodeld in Sources */,
+				CE499BC02D85900500B1497E /* CoreDataManager.swift in Sources */,
+				CE499BBC2D8580AB00B1497E /* NumberFormatter+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,15 +333,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = BugetApp/BugetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BugetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = W3A2LBXZ3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = ContentView;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -314,14 +367,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = BugetApp/BugetApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BugetApp/Preview Content\"";
+				DEVELOPMENT_TEAM = W3A2LBXZ3R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = ContentView;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -361,14 +418,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CEEA89BE2D847D5B00A13984 /* budgetModel.xcdatamodeld */ = {
+		CE499BCA2D85962C00B1497E /* BudgetModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */,
+				CE499BCB2D85962C00B1497E /* BudgetModel.xcdatamodel */,
 			);
-			currentVersion = CEEA89BF2D847D5B00A13984 /* budgetModel.xcdatamodel */;
-			name = budgetModel.xcdatamodeld;
-			path = /Users/user/Documents/ios_course/HelloSwiftUI/BugetApp/BugetApp/budgetModel.xcdatamodeld;
+			currentVersion = CE499BCB2D85962C00B1497E /* BudgetModel.xcdatamodel */;
+			name = BudgetModel.xcdatamodeld;
+			path = /Users/user/Documents/ios_course/HelloSwiftUI/BugetApp/BugetApp/Models/BudgetModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
