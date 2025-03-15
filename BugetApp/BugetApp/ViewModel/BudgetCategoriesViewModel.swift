@@ -29,7 +29,14 @@ final class BudgetCategoriesViewModel: ObservableObject {
     }
 
     func addNewCategory(title: String, total: Double) {
-        CoreDataManager.shared.addBudgetCategory(title: title, total: total)
-        fetchCategories()
+        if let newCategory = CoreDataManager.shared.addBudgetCategory(title: title, total: total) {
+            self.budgetCategories.append(newCategory)
+        }
     }
+    
+    func deleteCategory(indexSet: IndexSet) {
+        CoreDataManager.shared.deleteBudgetCategory(indexSet: indexSet)
+        self.budgetCategories.remove(atOffsets: indexSet)
+    }
+
 }

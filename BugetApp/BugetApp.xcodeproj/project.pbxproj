@@ -17,6 +17,7 @@
 		CE499BC02D85900500B1497E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BBF2D85900500B1497E /* CoreDataManager.swift */; };
 		CE499BCC2D85962C00B1497E /* BudgetModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE499BCA2D85962C00B1497E /* BudgetModel.xcdatamodeld */; };
 		CE499BCE2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BCD2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift */; };
+		CE499BD12D85D24100B1497E /* BudgetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BD02D85D24100B1497E /* BudgetList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CE499BBF2D85900500B1497E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		CE499BCB2D85962C00B1497E /* BudgetModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetModel.xcdatamodel; sourceTree = "<group>"; };
 		CE499BCD2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE499BD02D85D24100B1497E /* BudgetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		CE0DABC12D833460000ED1F3 /* BugetApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE499BCF2D85D10500B1497E /* CustomViews */,
 				CE499BBE2D858FF600B1497E /* Manager */,
 				CE499BBA2D85809000B1497E /* Extenstion */,
 				CE499BB52D85772600B1497E /* View */,
@@ -125,6 +128,14 @@
 				CE499BBF2D85900500B1497E /* CoreDataManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		CE499BCF2D85D10500B1497E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				CE499BD02D85D24100B1497E /* BudgetList.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 				CE499BCE2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift in Sources */,
 				CE0DABC32D833460000ED1F3 /* BugetAppApp.swift in Sources */,
 				CE499BB42D85769E00B1497E /* BudgetCategoriesViewModel.swift in Sources */,
+				CE499BD12D85D24100B1497E /* BudgetList.swift in Sources */,
 				CE499BCC2D85962C00B1497E /* BudgetModel.xcdatamodeld in Sources */,
 				CE499BC02D85900500B1497E /* CoreDataManager.swift in Sources */,
 				CE499BBC2D8580AB00B1497E /* NumberFormatter+Extension.swift in Sources */,
