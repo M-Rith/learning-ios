@@ -13,7 +13,13 @@ struct BudgetDetailView: View {
     @State private var isPresented: Bool = false
     @EnvironmentObject var transactionViewModel: TransactionViewModel
     
+    @State private var total: Double = 0.0
     
+    
+    var overBudget: Bool {
+        return budgetCategory.total - total < 0
+    }
+        
     var body: some View {
         VStack(alignment: .center) {
             HStack {
@@ -26,9 +32,13 @@ struct BudgetDetailView: View {
                 }
             }
             
+            Text("\(overBudget ? "Over Budget" : "Remaining" ) \(Text(budgetCategory.total - total as NSNumber, formatter: NumberFormatter.currency ))").fontWeight(.bold).foregroundStyle(overBudget ? .red : .green)
+             
             List {
                 ForEach(transactionViewModel.transactionList) { transaction in
                     TransactionListView(transaction: transaction)
+                }.onDelete { offsets in
+                    transactionViewModel.deleteTransaction(indexSet: offsets, category: budgetCategory)
                 }
             }
             
@@ -54,6 +64,9 @@ struct BudgetDetailView: View {
         
         }.onAppear {
             transactionViewModel.fetchTransactionBaseOnCategory(category: budgetCategory)
+            total = transactionViewModel.getTotalTransaction()
+        }.onChange(of: transactionViewModel.transactionList) {
+            total = transactionViewModel.getTotalTransaction()
         }
 
     }

@@ -80,4 +80,23 @@ class CoreDataManager {
         }
     }
 
+    
+    func deleteTransaction(indexSet: IndexSet, from category: BudgetCategory) {
+        let request = NSFetchRequest<Transaction>(entityName: "Transaction")
+        request.predicate = NSPredicate(format: "category == %@", category)
+
+        do {
+            let transactions = try container.viewContext.fetch(request)
+            
+            for index in indexSet {
+                container.viewContext.delete(transactions[index])
+            }
+            
+            save()
+        } catch {
+            print("Error deleting transaction: \(error.localizedDescription)")
+        }
+    }
+
+
 }

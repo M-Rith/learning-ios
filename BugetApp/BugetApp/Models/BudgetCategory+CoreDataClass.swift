@@ -14,4 +14,7 @@ public class BudgetCategory : NSManagedObject {
     public override func awakeFromInsert() {
         self.dateCreated = Date()
     }
+    
+    
+    
 }
