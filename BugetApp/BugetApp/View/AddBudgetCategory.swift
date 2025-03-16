@@ -7,8 +7,7 @@ struct AddBudgetCategory: View {
     @State private var titleError: Bool = false
     @State private var total: Double = 100
     @State private var totalError: Bool = false
-    @Environment(\.dismiss) var dismiss // To close the sheet after saving
-
+    @Environment(\.dismiss) var dismiss
     var isFormValid: Bool {
         titleError = title.isEmpty
         totalError = total <= 10
@@ -60,10 +59,7 @@ struct AddBudgetCategory: View {
                         Task {
                             if isFormValid {
                                 viewModel.addNewCategory(title: title, total: total)
-                                dismiss() // Close sheet after adding
-                                print("Valid")
-                            } else {
-                                print("Not valid")
+                                dismiss()
                             }
                         }
                     }

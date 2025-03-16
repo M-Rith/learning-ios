@@ -11,6 +11,8 @@
 		CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DABC42D833460000ED1F3 /* ContentView.swift */; };
 		CE0DABC72D833462000ED1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC62D833462000ED1F3 /* Assets.xcassets */; };
 		CE0DABCA2D833462000ED1F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */; };
+		CE24589F2D86AEDD0095C033 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE24589E2D86AEDD0095C033 /* TransactionListView.swift */; };
+		CE2458A12D86B3600095C033 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2458A02D86B35F0095C033 /* Date+Extension.swift */; };
 		CE499BB42D85769E00B1497E /* BudgetCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */; };
 		CE499BB72D85773B00B1497E /* AddBudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BB62D85773B00B1497E /* AddBudgetCategory.swift */; };
 		CE499BBC2D8580AB00B1497E /* NumberFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */; };
@@ -21,6 +23,7 @@
 		CE499BD32D85E12D00B1497E /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BD22D85E12D00B1497E /* Transaction+CoreDataClass.swift */; };
 		CE499BD52D85E17800B1497E /* BudgetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BD42D85E17800B1497E /* BudgetDetailView.swift */; };
 		CE499BD72D85E88B00B1497E /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BD62D85E88B00B1497E /* AddTransactionView.swift */; };
+		CE499BD92D85EBA500B1497E /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE499BD82D85EBA500B1497E /* TransactionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,8 @@
 		CE0DABC62D833462000ED1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0DABC92D833462000ED1F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE0DABCB2D833462000ED1F3 /* BugetApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BugetApp.entitlements; sourceTree = "<group>"; };
+		CE24589E2D86AEDD0095C033 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
+		CE2458A02D86B35F0095C033 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategoriesViewModel.swift; sourceTree = "<group>"; };
 		CE499BB62D85773B00B1497E /* AddBudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetCategory.swift; sourceTree = "<group>"; };
 		CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Extension.swift"; sourceTree = "<group>"; };
@@ -40,6 +45,7 @@
 		CE499BD22D85E12D00B1497E /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE499BD42D85E17800B1497E /* BudgetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailView.swift; sourceTree = "<group>"; };
 		CE499BD62D85E88B00B1497E /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		CE499BD82D85EBA500B1497E /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				CE499BB32D85769E00B1497E /* BudgetCategoriesViewModel.swift */,
+				CE499BD82D85EBA500B1497E /* TransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				CE499BBB2D8580AB00B1497E /* NumberFormatter+Extension.swift */,
+				CE2458A02D86B35F0095C033 /* Date+Extension.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				CE499BD02D85D24100B1497E /* BudgetList.swift */,
+				CE24589E2D86AEDD0095C033 /* TransactionListView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -217,10 +226,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE499BD92D85EBA500B1497E /* TransactionViewModel.swift in Sources */,
 				CE499BD52D85E17800B1497E /* BudgetDetailView.swift in Sources */,
 				CE0DABC52D833460000ED1F3 /* ContentView.swift in Sources */,
 				CE499BB72D85773B00B1497E /* AddBudgetCategory.swift in Sources */,
 				CE499BCE2D8596C300B1497E /* BudgetCategory+CoreDataClass.swift in Sources */,
+				CE2458A12D86B3600095C033 /* Date+Extension.swift in Sources */,
+				CE24589F2D86AEDD0095C033 /* TransactionListView.swift in Sources */,
 				CE0DABC32D833460000ED1F3 /* BugetAppApp.swift in Sources */,
 				CE499BB42D85769E00B1497E /* BudgetCategoriesViewModel.swift in Sources */,
 				CE499BD12D85D24100B1497E /* BudgetList.swift in Sources */,
@@ -378,7 +390,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.BugetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -410,7 +422,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = personal.BugetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

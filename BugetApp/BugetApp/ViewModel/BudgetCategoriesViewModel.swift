@@ -24,8 +24,6 @@ final class BudgetCategoriesViewModel: ObservableObject {
 
     func fetchCategories() {
         self.budgetCategories = CoreDataManager.shared.fetchBudgetCategory() ?? []
-        
-        print(budgetCategories)
     }
 
     func addNewCategory(title: String, total: Double) {
