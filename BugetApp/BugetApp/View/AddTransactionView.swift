@@ -72,7 +72,6 @@ struct AddTransactionView: View {
 
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Save") {
-                    print(category!)
                     if isFormValid {
                         transactionViewModel.addNewTransaction(title: title, total: Double(total)!, date: date, note: notes, category: category! )
                         dismiss()
