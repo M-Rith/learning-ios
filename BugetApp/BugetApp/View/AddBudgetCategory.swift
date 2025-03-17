@@ -53,7 +53,7 @@ struct AddBudgetCategory: View {
                         .foregroundStyle(totalError ? .red : .black)
                 }
             }
-            .navigationTitle(category == nil ? "Add New Budget" : "Edit Budget")
+            .navigationTitle(category == nil ? "Add New Category" : "Edit Category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
