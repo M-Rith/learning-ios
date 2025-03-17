@@ -1,10 +1,3 @@
-//
-//  BudgetDetailView.swift
-//  BugetApp
-//
-//  Created by AppleD0g on 3/15/25.
-//
-
 import SwiftUI
 
 struct BudgetDetailView: View {
@@ -13,38 +6,60 @@ struct BudgetDetailView: View {
     @State private var isPresented: Bool = false
     @EnvironmentObject var transactionViewModel: TransactionViewModel
     
-    @State private var total: Double = 0.0
-    
+    @State private var selectedTransaction: Transaction?
     
     var overBudget: Bool {
-        return budgetCategory.total - total < 0
+        return budgetCategory.total - transactionViewModel.getTotalTransaction() < 0
     }
         
     var body: some View {
         VStack(alignment: .center) {
             HStack {
                 VStack(alignment: .center) {
-                    Text(budgetCategory.title ?? "No Title Found").font(.title).fontWeight(.bold)
+                    Text(budgetCategory.title ?? "No Title Found")
+                        .font(.title)
+                        .fontWeight(.bold)
                     HStack {
-                        Text("Budgets : ").font(.subheadline)
+                        Text("Budgets : ")
+                            .font(.subheadline)
                         Text(budgetCategory.total as NSNumber, formatter: NumberFormatter.currency)
                     }
                 }
             }
             
-            Text("\(overBudget ? "Over Budget" : "Remaining" ) \(Text(budgetCategory.total - total as NSNumber, formatter: NumberFormatter.currency ))").fontWeight(.bold).foregroundStyle(overBudget ? .red : .green)
+            Text("\(overBudget ? "Over Budget" : "Remaining") \(Text(budgetCategory.total - transactionViewModel.getTotalTransaction() as NSNumber, formatter: NumberFormatter.currency ))")
+                .fontWeight(.bold)
+                .foregroundStyle(overBudget ? .red : .green)
              
-            List {
-                ForEach(transactionViewModel.transactionList) { transaction in
-                    TransactionListView(transaction: transaction)
-                }.onDelete { offsets in
-                    transactionViewModel.deleteTransaction(indexSet: offsets, category: budgetCategory)
-                }
+            if transactionViewModel.transactionList.isEmpty {
+                Text("No transaction for this category")
             }
             
-            
-            
-            
+            List {
+                ForEach(transactionViewModel.transactionList.sorted {
+                    $0.date ?? Date.distantPast > $1.date ?? Date.distantPast
+                }) { transaction in
+                    TransactionListView(transaction: transaction)
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                if let index = transactionViewModel.transactionList.firstIndex(of: transaction) {
+                                    let indexSet = IndexSet(integer: index)
+                                    transactionViewModel.deleteTransaction(indexSet: indexSet, category: budgetCategory)
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            
+                            Button {
+                                selectedTransaction = transaction
+//                                AddTransactionView(category: budgetCategory)
+                            } label: {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.blue)
+                        }
+                }
+            }
             
             Spacer()
             
@@ -57,17 +72,26 @@ struct BudgetDetailView: View {
                         .foregroundColor(.blue)
                 }
             }
-        }.sheet(isPresented: $isPresented) {
+        }
+        .sheet(isPresented: $isPresented) {
             NavigationStack {
                 AddTransactionView(category: budgetCategory)
             }
-        
-        }.onAppear {
-            transactionViewModel.fetchTransactionBaseOnCategory(category: budgetCategory)
-            total = transactionViewModel.getTotalTransaction()
-        }.onChange(of: transactionViewModel.transactionList) {
-            total = transactionViewModel.getTotalTransaction()
         }
-
+        
+        .sheet(item: $selectedTransaction) { transaction in
+            
+            NavigationStack {
+                AddTransactionView(category: budgetCategory, selectedTransaction: transaction)
+            }
+            
+        }
+        
+        .onAppear {
+            transactionViewModel.fetchTransactionBaseOnCategory(category: budgetCategory)
+        }
+        
+       
+        
     }
 }

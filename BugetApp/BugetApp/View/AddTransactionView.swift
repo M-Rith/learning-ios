@@ -10,22 +10,33 @@ struct AddTransactionView: View {
     @State private var notes: String = ""
     @State private var date = Date()
     
-    var category: BudgetCategory? 
+    var category: BudgetCategory?
+    var selectedTransaction: Transaction?
+    
+    
+    
     
     @EnvironmentObject var transactionViewModel: TransactionViewModel
     
     
     
     var isFormValid: Bool {
-        
         titleError = title.isEmpty
+
+        if total.isEmpty {
+            totalError = true
+            return false
+        }
         
+        guard let totalAsDouble = Double(total), totalAsDouble > 0 else {
+            totalError = true
+            return false
+        }
         
-        guard let totalAsDouble = Double(total) else { return false }
-        
-        totalError = totalAsDouble > 0 && !total.isEmpty
-        return !title.isEmpty && !total.isEmpty && totalAsDouble > 0
+        totalError = false
+        return !titleError && !totalError
     }
+
     
     
 
@@ -61,23 +72,37 @@ struct AddTransactionView: View {
         
             
         }
-        .navigationTitle("Add Transaction")
+        .onAppear {
+            if let transaction = selectedTransaction {
+                title = transaction.title ?? ""
+                total = String(format: "%.2f", transaction.total)
+                notes = transaction.notes ?? ""
+                date = transaction.date ?? Date()
+            }
+        }
+        .navigationTitle(selectedTransaction == nil ? "Add Transaction" : "Edite Transaction")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("Cancel") {
-                    dismiss()
-                }
-            }
-
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("Save") {
                     if isFormValid {
-                        transactionViewModel.addNewTransaction(title: title, total: Double(total)!, date: date, note: notes, category: category! )
+                        if let transaction = selectedTransaction {
+                            transactionViewModel.updateTransaction(transaction: transaction, title: title, total: Double(total)!, date: date, note: notes, category: category!)
+                        }
+                        else {
+                            transactionViewModel.addNewTransaction(title: title, total: Double(total)!, date: date, note: notes, category: category! )
+                        }
                         dismiss()
                     }
                 }
             }
+            ToolbarItemGroup(placement: .topBarLeading) {
+                Button("Cancel") {
+                    dismiss()
+                }
+            }
+            
+
         }
     }
 }

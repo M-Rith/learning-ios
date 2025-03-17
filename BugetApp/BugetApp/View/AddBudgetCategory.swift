@@ -2,12 +2,22 @@ import SwiftUI
 
 struct AddBudgetCategory: View {
     
-    @EnvironmentObject var viewModel: BudgetCategoriesViewModel // No need to pass it manually
-    @State private var title: String = ""
-    @State private var titleError: Bool = false
-    @State private var total: Double = 100
-    @State private var totalError: Bool = false
+    var category: BudgetCategory?
+    
+    @EnvironmentObject var viewModel: BudgetCategoriesViewModel
     @Environment(\.dismiss) var dismiss
+    
+    @State private var title: String
+    @State private var total: Double
+    @State private var titleError: Bool = false
+    @State private var totalError: Bool = false
+    
+    init(category: BudgetCategory? = nil) {
+        _title = State(initialValue: category?.title ?? "")
+        _total = State(initialValue: category?.total ?? 100)
+        self.category = category
+    }
+
     var isFormValid: Bool {
         titleError = title.isEmpty
         totalError = total <= 10
@@ -22,7 +32,6 @@ struct AddBudgetCategory: View {
     }()
 
     var body: some View {
-        
         NavigationStack {
             Form {
                 HStack(spacing: 25) {
@@ -44,31 +53,29 @@ struct AddBudgetCategory: View {
                         .foregroundStyle(totalError ? .red : .black)
                 }
             }
-            .navigationTitle("Add New Budget")
+            .navigationTitle(category == nil ? "Add New Budget" : "Edit Budget")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancle") {
-                        Task {
-                            dismiss()
-                        }
+                    Button("Cancel") {
+                        dismiss()
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
-                        Task {
-                            if isFormValid {
+                        if isFormValid {
+                            if let category = category {
+                                // ✅ Edit existing category
+                                viewModel.editCategory(title: title, total: total, category: category)
+                            } else {
+                                // ✅ Add new category
                                 viewModel.addNewCategory(title: title, total: total)
-                                dismiss()
                             }
+                            dismiss()
                         }
                     }
                 }
             }
         }
     }
-}
-
-#Preview {
-    AddBudgetCategory()
 }
