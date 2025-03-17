@@ -80,7 +80,7 @@ struct AddTransactionView: View {
                 date = transaction.date ?? Date()
             }
         }
-        .navigationTitle(selectedTransaction == nil ? "Add Transaction" : "Edite Transaction")
+        .navigationTitle(selectedTransaction == nil ? "Add Transaction" : "Edit Transaction")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
