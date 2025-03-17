@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TransactionListView: View {
     
-    var transaction: Transaction
+    @ObservedObject var transaction: Transaction
     
     var body: some View {
         VStack(alignment: .leading) {

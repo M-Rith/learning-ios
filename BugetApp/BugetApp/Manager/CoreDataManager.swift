@@ -46,6 +46,14 @@ class CoreDataManager {
         }
     }
     
+    func editBudgetCategory(category: BudgetCategory, newTitle: String, newTotal: Double) {
+        category.title = newTitle
+        category.total = newTotal
+        save()
+    }
+
+    
+
     func deleteBudgetCategory(indexSet : IndexSet) {
         guard let index = indexSet.first else { return }
         if let budget = fetchBudgetCategory() {
@@ -78,6 +86,14 @@ class CoreDataManager {
             save()
             return newTransaction
         }
+    }
+    
+    func editTransaction(transaction: Transaction, newTitle: String, newTotal: Double, newDate: Date, newNote: String) {
+        transaction.title = newTitle
+        transaction.total = newTotal
+        transaction.date = newDate
+        transaction.notes = newNote
+        save()
     }
 
     
