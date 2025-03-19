@@ -1,16 +1,18 @@
 import SwiftUI
 
 struct BudgetList: View {
-    
     @ObservedObject var budgetCategory: BudgetCategory
     @EnvironmentObject var transactionViewModel: TransactionViewModel
     @State private var total: Double = 0.0
-    @State private var progress: Double = 0.0
+
+    var progress: Double {
+        budgetCategory.total > 0 ? min(total / budgetCategory.total, 1) : 0
+    }
 
     var overBudget: Bool {
         return total > budgetCategory.total
     }
-    
+
     var body: some View {
         HStack(alignment: .center) {
             Text(budgetCategory.title ?? "")
@@ -19,11 +21,9 @@ struct BudgetList: View {
             Spacer()
 
             VStack(alignment: .trailing, spacing: 10) {
-                // Display total budget amount
                 Text(budgetCategory.total as NSNumber, formatter: NumberFormatter.currency)
                     .fontWeight(.bold)
 
-                // Custom Circular Progress Indicator
                 ZStack {
                     Circle()
                         .stroke(Color.gray.opacity(0.3), lineWidth: 5)
@@ -47,9 +47,6 @@ struct BudgetList: View {
             } else {
                 total = 0
             }
-
-            // Compute progress safely
-            progress = budgetCategory.total > 0 ? min(total / budgetCategory.total, 1) : 0
         }
     }
 }
